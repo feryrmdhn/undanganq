@@ -134,8 +134,12 @@ function buildWishes() {
 }
 
 // ================== API UCAPAN (backend server.js + MySQL) ==================
-// Saat produksi, ganti dengan URL public backend-mu, mis. 'https://api.fery-fitri.online'
-var API_BASE = 'http://localhost:3000';
+// Otomatis: lokal (file:// / localhost) pakai server.js di port 3000,
+// produksi (https) memanggil /api/wishes di domain yang sama (Vercel function).
+var API_BASE = (window.location.protocol === 'https:' &&
+    window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1')
+    ? 'https://fery-fitri.online'
+    : 'http://localhost:3000';
 
 function apiGetWishes() {
     return fetch(API_BASE + '/api/wishes?limit=100')
