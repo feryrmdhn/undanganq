@@ -1,5 +1,4 @@
 // ================== BACKEND API UCAPAN ==================
-// Konek ke MySQL (Railway) via .env, expose:
 //   GET  /api/wishes?limit=100  -> daftar ucapan terbaru
 //   POST /api/wishes {name, message} -> simpan ucapan
 // Jalankan: node server.js  (atau npm start)
@@ -9,7 +8,6 @@ const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2/promise');
 
-// Muat .env sederhana (tanpa dependensi tambahan)
 (function loadEnv() {
     try {
         const raw = fs.readFileSync(path.join(__dirname, '.env'), 'utf8');
