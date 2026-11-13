@@ -1,5 +1,5 @@
 // ================== DATA UNDANGAN (HARDCODE / FULL STATIS) ==================
-// Ubah nilai di bawah ini untuk mengubah isi undangan. Tidak ada fetch API.
+
 var FALLBACK_DATA = {
     guestName: 'Tamu Undangan',
 
@@ -37,9 +37,6 @@ var FALLBACK_DATA = {
 };
 
 // ================== UCAPAN: DUMMY + LOCALSTORAGE ==================
-// Konsep: 35 ucapan dummy diacak setiap load. Ucapan user disimpan di
-// localStorage, saat dikirim tampil di posisi teratas; pada kunjungan
-// berikutnya diacak bersama dummy sehingga seolah "tenggelam" oleh ucapan lain.
 var WISHES_STORAGE_KEY = 'undangan_fery_fitri_wishes';
 
 var DUMMY_WISH_NAMES = [
@@ -485,8 +482,6 @@ function showNotification(message, type) {
     }, 3000);
 }
 
-// Kapitalkan huruf pertama tiap kata nama tamu (agar case di URL tidak berpengaruh).
-// Huruf setelah titik juga dikapitalkan agar gelar seperti "s.pd." tetap tampil "S.Pd."
 function formatGuestName(str) {
     return str.replace(/\S+/g, function (w) {
         return w.replace(/(^|\.)([a-z])/g, function (m, p, c) {
